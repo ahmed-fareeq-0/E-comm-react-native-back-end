@@ -38,6 +38,19 @@ const setupRoutes = (app) => {
     }
 
   })
+
+
+  app.delete("/delete-item/:id", async (req, res) => {
+    try{
+      let result = await productModel.deleteOne({_id: req.params.id});
+      res.send(result);
+    } 
+    catch(err) {
+      console.log(err);
+    }
+  })
+
+
 }
 
 
